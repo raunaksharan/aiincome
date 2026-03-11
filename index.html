@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Income Playbooks — 7 Proven AI Business Models</title>
+  <meta name="description" content="7 AI businesses built by real people. Copy them in 7 days. Step-by-step playbooks to launch your AI income stream this week." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '329963941385091');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=329963941385091&ev=PageView&noscript=1"/></noscript>
+
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R57WF85WMT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-R57WF85WMT');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0d0d0d;
+      --bg-card: #141414;
+      --bg-card-hover: #1a1a1a;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --purple: #8b5cf6;
+      --text: #f5f5f5;
+      --muted: #a3a3a3;
+      --border: #262626;
+      --border-accent: rgba(245, 158, 11, 0.3);
+      --success: #10b981;
+      --danger: #ef4444;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announcement-bar {
+      background: var(--accent);
+      color: #000;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 72px 0 56px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: var(--text);
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: clamp(16px, 2.5vw, 19px);
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      font-weight: 400;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-size: 17px;
+      font-weight: 800;
+      padding: 18px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: -0.01em;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active { transform: translateY(0); }
+
+    .hero-guarantee {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .hero-guarantee svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── PRICE TAG ── */
+    .price-display {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .price-old {
+      font-size: 20px;
+      color: var(--muted);
+      text-decoration: line-through;
+      font-weight: 500;
+    }
+
+    .price-new {
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    p { color: var(--muted); margin-bottom: 16px; }
+    p:last-child { margin-bottom: 0; }
+
+    strong { color: var(--text); }
+
+    /* ── HOOK ── */
+    .hook-list {
+      list-style: none;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .hook-list li {
+      color: var(--muted);
+      padding-left: 24px;
+      position: relative;
+    }
+
+    .hook-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--border);
+    }
+
+    .hook-emphasis {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      margin: 24px 0;
+      line-height: 1.4;
+    }
+
+    /* ── PROBLEM / SOLUTION LISTS ── */
+    .check-list, .x-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .check-list li, .x-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .check-list li span:first-child {
+      color: var(--success);
+      font-size: 17px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .x-list li span:first-child {
+      color: var(--danger);
+      font-size: 17px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .check-list li span:last-child,
+    .x-list li span:last-child {
+      color: var(--muted);
+    }
+
+    /* ── PLAYBOOK CARDS ── */
+    .playbook-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .playbook-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      transition: border-color 0.2s, background 0.2s, transform 0.15s;
+      cursor: default;
+    }
+
+    .playbook-card:hover {
+      border-color: var(--border-accent);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+
+    .playbook-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .playbook-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .playbook-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .playbook-winner {
+      font-size: 13px;
+      color: var(--purple);
+      font-weight: 500;
+    }
+
+    /* ── INCLUDES GRID ── */
+    .includes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .include-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .include-item .icon {
+      color: var(--success);
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .include-item .label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .include-item .desc {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── PROMISE SECTION ── */
+    .promise-card {
+      background: rgba(245, 158, 11, 0.06);
+      border: 1px solid var(--border-accent);
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .promise-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .promise-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .promise-items li .arrow {
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── 2-COL WHO SECTION ── */
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 520px) {
+      .who-grid { grid-template-columns: 1fr; }
+      .includes-grid { grid-template-columns: 1fr; }
+    }
+
+    .who-col h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── WHY PRICE ── */
+    .price-reason {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .price-reason .big-price {
+      font-size: 60px;
+      font-weight: 900;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      margin: 12px 0;
+    }
+
+    .price-reason .old-price {
+      font-size: 22px;
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+
+    .price-reason p {
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    /* ── WHAT HAPPENS ── */
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 24px;
+      position: relative;
+    }
+
+    .steps-list::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .steps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      background: var(--accent);
+      color: #000;
+      font-size: 13px;
+      font-weight: 800;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-content strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .step-content span {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* ── BONUS CARD ── */
+    .bonus-card {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(245, 158, 11, 0.05));
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .bonus-card .bonus-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 10px;
+    }
+
+    /* ── DFY CARD ── */
+    .dfy-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .dfy-price-range {
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      margin: 12px 0;
+    }
+
+    /* ── CHOICE SECTION ── */
+    .choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 500px) {
+      .choice-grid { grid-template-columns: 1fr; }
+    }
+
+    .choice-option {
+      border-radius: 12px;
+      padding: 22px;
+      border: 1px solid var(--border);
+    }
+
+    .choice-option.bad {
+      background: rgba(239, 68, 68, 0.05);
+      border-color: rgba(239, 68, 68, 0.2);
+    }
+
+    .choice-option.good {
+      background: rgba(245, 158, 11, 0.06);
+      border-color: var(--border-accent);
+    }
+
+    .choice-option .choice-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .choice-option.bad .choice-num { color: var(--danger); }
+    .choice-option.good .choice-num { color: var(--accent); }
+
+    .choice-option p {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── FAQ ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 24px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+
+    .faq-item:first-child { padding-top: 0; }
+
+    .faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      text-align: center;
+      padding: 72px 0;
+      border-bottom: none;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(26px, 4vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .final-cta p {
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    /* ── PASSCODE GATE ── */
+    .passcode-section {
+      padding: 40px 0 56px;
+      text-align: center;
+    }
+
+    .passcode-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .passcode-divider::before, .passcode-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .passcode-divider span {
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .passcode-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .passcode-box label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 10px;
+      text-align: left;
+    }
+
+    .passcode-input-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .passcode-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 15px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .passcode-input::placeholder {
+      text-transform: none;
+      letter-spacing: 0;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .passcode-input:focus {
+      border-color: var(--accent);
+    }
+
+    .btn-passcode {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-passcode:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .passcode-error {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--danger);
+      display: none;
+    }
+
+    .passcode-error.visible { display: block; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    /* ── TRUST BADGES ── */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .trust-item svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero { padding: 48px 0 40px; }
+      section { padding: 40px 0; }
+      .btn-primary { font-size: 16px; padding: 16px 28px; }
+      .promise-card { padding: 20px; }
+      .bonus-card, .dfy-card, .price-reason { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    Limited Launch Price — $27 (Normally $97) &nbsp;•&nbsp; Instant Notion Access
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" style="border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="hero-badge">7 Proven AI Business Models</div>
+      <h1>7 AI Businesses.<br><span>Built by Real People.</span><br>Copy Them in 7 Days.</h1>
+      <p class="hero-sub">No fluff. No theory. Just 7 proven AI business models with step-by-step playbooks to launch this week.</p>
+
+      <div class="price-display">
+        <span class="price-old">$97</span>
+        <span class="price-new">$27</span>
+      </div>
+
+      <div class="hero-cta-group">
+        <a href="https://rzp.io/rzp/iIpQ5P76" class="btn-primary">Get Instant Access — $27</a>
+        <p class="hero-guarantee">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Instant access. Notion template. Lifetime updates.
+        </p>
+      </div>
+
+      <div class="trust-row" style="margin-top: 28px;">
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          No code required
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Start with ₹0–5K
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          7-day action plan
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOOK -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Reality Check</div>
+      <h2>Most AI Income Advice Is Garbage.</h2>
+      <p>You've seen the AI hype. Everyone's talking about "10x productivity" and "the future of work."</p>
+      <p>But here's what nobody tells you:</p>
+      <ul class="hook-list">
+        <li>"Use ChatGPT to write tweets" — cool, so can everyone else</li>
+        <li>"Start an AI agency" — okay, but HOW?</li>
+        <li>"Prompt packs with 500 prompts" — useless without a system</li>
+      </ul>
+      <div class="hook-emphasis">You don't need more AI tips. You need a proven playbook.</div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Problem</div>
+      <h2>Here's Where Most People Get Stuck</h2>
+      <p>Meanwhile, others are already making money. Not because they're smarter. Because they copied what works.</p>
+      <ul class="x-list">
+        <li><span>✗</span><span>They watch YouTube videos but never start</span></li>
+        <li><span>✗</span><span>They buy courses that teach theory, not action</span></li>
+        <li><span>✗</span><span>They try to "figure it out" and waste months</span></li>
+        <li><span>✗</span><span>They don't know which AI business model fits <em>them</em></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SOLUTION -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Solution</div>
+      <h2>Introducing: AI Income Playbooks</h2>
+      <p>7 AI business models that real people built. Each one reverse-engineered into a step-by-step system you can copy this week.</p>
+      <p><strong>No theory. No fluff. No "it depends."</strong></p>
+      <div class="hook-emphasis">Here's what works. Here's how to do it. Here's your 7-day plan.</div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section>
+    <div class="container">
+      <div class="section-label">What's Inside</div>
+      <h2>7 Complete Playbooks</h2>
+      <p>Each model proven by a real person making real money. Here's exactly what you get:</p>
+
+      <div class="playbook-grid">
+
+        <div class="playbook-card">
+          <div class="playbook-number">Playbook 01</div>
+          <div class="playbook-title">AI Automation Agency</div>
+          <div class="playbook-desc">Build automations for businesses. Charge ₹50K–3L per project. Land retainers for recurring income.</div>
+          <div class="playbook-winner">Winner: Liam Ottley — 7-figure agency in 2 years</div>
+        </div>
+
+        <div class="playbook-card">
+          <div class="playbook-number">Playbook 02</div>
+          <div class="playbook-title">AI Lead Generation</div>
+          <div class="playbook-desc">Book qualified meetings for businesses on autopilot. Scale with AI-written personalization.</div>
+          <div class="playbook-winner">Winner: Alex Berman — $100K+/month</div>
+        </div>
+
+        <div class="playbook-card">
+          <div class="playbook-number">Playbook 03</div>
+          <div class="playbook-title">AI Content Business</div>
+          <div class="playbook-desc">Create content about AI. Monetize with ads, sponsors, and affiliates. Build an audience that pays.</div>
+          <div class="playbook-winner">Winner: Matt Wolfe — 500K+ subscribers</div>
+        </div>
+
+        <div class="playbook-card">
+          <div class="playbook-number">Playbook 04</div>
+          <div class="playbook-title">AI Affiliate Websites</div>
+          <div class="playbook-desc">Rank on Google with AI-assisted content. Earn commissions while you sleep. Scale to 50–100 articles.</div>
+          <div class="playbook-winner">Winner: Adam Enfroy — $80K+/month</div>
+        </div>
+
+        <div class="playbook-card">
+          <div class="playbook-number">Playbook 05</div>
+          <div class="playbook-title">AI Product Builder</div>
+          <div class="playbook-desc">Build micro-products solo with AI assistance. Launch fast. Stack recurring income streams.</div>
+          <div class="playbook-winner">Winner: Pieter Levels — $200K+/month</div>
+        </div>
+
+        <div class="playbook-card">
+          <div class="playbook-number">Playbook 06</div>
+          <div class="playbook-title">AI Trading Systems</div>
+          <div class="playbook-desc">Use AI to analyze markets, identify patterns, and automate signals. Sell system access or trade yourself.</div>
+          <div class="playbook-winner">Winner: Multiple quant traders</div>
+        </div>
+
+        <div class="playbook-card">
+          <div class="playbook-number">Playbook 07</div>
+          <div class="playbook-title">AI Micro SaaS</div>
+          <div class="playbook-desc">Wrap AI APIs in a simple tool. Charge monthly subscriptions. Build multiple products, stack income.</div>
+          <div class="playbook-winner">Winner: Danny Postma — $50K+/month per product</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EACH PLAYBOOK INCLUDES -->
+  <section>
+    <div class="container">
+      <div class="section-label">Every Playbook</div>
+      <h2>6 Sections. Zero Fluff.</h2>
+      <p>Every playbook follows the same proven structure so you can go from reading to launching in one week.</p>
+      <div class="includes-grid">
+        <div class="include-item">
+          <span class="icon">✅</span>
+          <div>
+            <span class="label">Winner Story</span>
+            <span class="desc">Who did it and exactly how they made money</span>
+          </div>
+        </div>
+        <div class="include-item">
+          <span class="icon">✅</span>
+          <div>
+            <span class="label">The Model</span>
+            <span class="desc">Visual breakdown of how the business works</span>
+          </div>
+        </div>
+        <div class="include-item">
+          <span class="icon">✅</span>
+          <div>
+            <span class="label">AI Leverage</span>
+            <span class="desc">How AI makes this 10x easier than before</span>
+          </div>
+        </div>
+        <div class="include-item">
+          <span class="icon">✅</span>
+          <div>
+            <span class="label">The Workflow</span>
+            <span class="desc">Step-by-step system from zero to revenue</span>
+          </div>
+        </div>
+        <div class="include-item">
+          <span class="icon">✅</span>
+          <div>
+            <span class="label">Tools Stack</span>
+            <span class="desc">Exact tools with costs — most free or cheap</span>
+          </div>
+        </div>
+        <div class="include-item">
+          <span class="icon">✅</span>
+          <div>
+            <span class="label">7-Day Start Plan</span>
+            <span class="desc">Daily action items with checkboxes to follow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7-DAY PROMISE -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Promise</div>
+      <h2>The 7-Day Promise</h2>
+      <div class="promise-card">
+        <p style="color: var(--text); font-weight: 600; margin-bottom: 8px;">Pick any playbook. Follow the 7-day plan.</p>
+        <p>By Day 7, you'll have:</p>
+        <ul class="promise-items">
+          <li><span class="arrow">→</span><span>A real business started — not just an idea</span></li>
+          <li><span class="arrow">→</span><span>Your first outreach sent <em>or</em> product built <em>or</em> content live</span></li>
+          <li><span class="arrow">→</span><span>A clear path to your first paying customer</span></li>
+        </ul>
+        <p style="color: var(--accent); font-weight: 700; font-size: 17px; margin-top: 8px;">No more "I'll start next month." This is your start-this-week system.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR / NOT FOR -->
+  <section>
+    <div class="container">
+      <div class="section-label">Is This For You?</div>
+      <h2>Who This Is For — And Who It's Not</h2>
+      <div class="who-grid">
+        <div class="who-col">
+          <h3 style="color: var(--success);">This IS for you if...</h3>
+          <ul class="check-list">
+            <li><span>✓</span><span>You want to build income with AI but don't know where to start</span></li>
+            <li><span>✓</span><span>You're tired of generic advice and want proven playbooks</span></li>
+            <li><span>✓</span><span>You can commit 1–2 hours/day for 7 days</span></li>
+            <li><span>✓</span><span>You want systems, not theories</span></li>
+            <li><span>✓</span><span>You're ready to take action this week</span></li>
+          </ul>
+        </div>
+        <div class="who-col">
+          <h3 style="color: var(--danger);">This is NOT for you if...</h3>
+          <ul class="x-list">
+            <li><span>✗</span><span>You want to "get rich quick" with zero effort</span></li>
+            <li><span>✗</span><span>You're looking for another course to watch and forget</span></li>
+            <li><span>✗</span><span>You're not willing to do the work</span></li>
+            <li><span>✗</span><span>You just want to collect resources without using them</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY $27 -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Price</div>
+      <h2>Why $27?</h2>
+      <div class="price-reason">
+        <div class="old-price">$97</div>
+        <div class="big-price">$27</div>
+        <p>Each playbook took hours to research and build. I could charge more — and I will soon.</p>
+        <p style="margin-top: 12px; color: var(--accent); font-weight: 600;">$27 = Less than a dinner out. And it could be the dinner that changes your income forever.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT HAPPENS AFTER PURCHASE -->
+  <section>
+    <div class="container">
+      <div class="section-label">After Purchase</div>
+      <h2>What Happens Next</h2>
+      <p>Simple. No 47-module course. No 200-hour commitment.</p>
+      <ul class="steps-list">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <strong>Get instant Notion access</strong>
+            <span>Your access code arrives immediately after payment</span>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <strong>Duplicate to your Notion workspace</strong>
+            <span>One click — the full playbook system is yours forever</span>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <strong>Pick ONE playbook that fits you</strong>
+            <span>Use the "Which Model Fits You" guide inside</span>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <strong>Follow the 7-day plan</strong>
+            <span>Daily action items — checkboxes you actually check off</span>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">5</div>
+          <div class="step-content">
+            <strong>Build your AI income stream</strong>
+            <span>Connect with fellow builders on Discord. Get 1:1 help when ready to scale.</span>
+          </div>
+        </li>
+      </ul>
+      <p style="margin-top: 8px; font-weight: 600; color: var(--text);">Just: pick, follow, build.</p>
+    </div>
+  </section>
+
+  <!-- BONUS -->
+  <section>
+    <div class="container">
+      <div class="section-label">Bonus</div>
+      <h2>Direct Team Access</h2>
+      <div class="bonus-card">
+        <div class="bonus-label">Included Free</div>
+        <h3 style="margin-bottom: 10px;">Stuck? Have questions?</h3>
+        <p>Email us directly: <strong>team@notiondemand.com</strong></p>
+        <p>We'll help you figure out which playbook fits your situation and answer any questions within 24–48 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEED US TO BUILD IT -->
+  <section>
+    <div class="container">
+      <div class="section-label">Done-For-You</div>
+      <h2>Need Us to Build It For You?</h2>
+      <div class="dfy-card">
+        <p>If you go through the playbooks and decide you'd rather have experts handle it — we've got you.</p>
+        <div class="dfy-price-range">₹1L – ₹3L</div>
+        <p>We build the AI systems. You get the results.</p>
+        <p style="margin-top: 12px; color: var(--accent); font-weight: 600;">Book a call after purchase and mention "Playbooks" for priority access.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CHOICE -->
+  <section>
+    <div class="container">
+      <div class="section-label">The Decision</div>
+      <h2>You Have Two Options</h2>
+      <div class="choice-grid">
+        <div class="choice-option bad">
+          <div class="choice-num">Option 1</div>
+          <p>Keep watching YouTube, collecting tips, and "planning to start someday."</p>
+        </div>
+        <div class="choice-option good">
+          <div class="choice-num">Option 2</div>
+          <p>Get a proven playbook, follow a 7-day plan, and actually <strong>launch this week.</strong></p>
+        </div>
+      </div>
+      <p style="margin-top: 20px; text-align: center; font-size: 17px; font-weight: 700; color: var(--text);">Your AI income stream is waiting.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2>Common Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Is this a course?</div>
+          <p class="faq-a">No. It's a Notion template with 7 complete playbooks. No videos to watch. Just read, pick a model, and follow the plan.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Which playbook should I start with?</div>
+          <p class="faq-a">There's a "Which Model Fits You" guide inside. Or email us at team@notiondemand.com and we'll help you decide.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I need to know how to code?</div>
+          <p class="faq-a">No. Most playbooks use no-code tools or AI-assisted coding. If you can follow instructions, you can do this.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I need money to start?</div>
+          <p class="faq-a">Most playbooks can be started with ₹0–5,000/month in tools. Many tools have generous free tiers.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What if I have questions?</div>
+          <p class="faq-a">Email team@notiondemand.com — we respond within 24–48 hours.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is there a refund policy?</div>
+          <p class="faq-a">Due to the digital nature of the product, all sales are final. But if you actually follow a playbook and don't find it valuable, email us and we'll work something out.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="container">
+      <p class="section-label" style="text-align:center;">Final Call</p>
+      <h2>You're Still Here.<br>That Means You're Serious.</h2>
+      <p>Stop consuming. Start building. Your AI income stream is one playbook away.</p>
+
+      <div class="price-display">
+        <span class="price-old">$97</span>
+        <span class="price-new">$27</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 12px;">
+        <a href="https://rzp.io/rzp/iIpQ5P76" class="btn-primary">Get the Playbooks — $27</a>
+        <p class="hero-guarantee" style="margin: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Instant access · Notion template · Lifetime updates
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASSCODE GATE -->
+  <div class="passcode-section">
+    <div class="container">
+      <div class="passcode-divider">
+        <span>Already purchased?</span>
+      </div>
+      <div class="passcode-box">
+        <label for="passcode-input">Enter your access code to log in:</label>
+        <div class="passcode-input-group">
+          <input
+            type="text"
+            id="passcode-input"
+            class="passcode-input"
+            placeholder="e.g. EARLYADOPTER"
+            maxlength="30"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="btn-passcode" id="passcode-btn">Access My Playbooks</button>
+        </div>
+        <div class="passcode-error" id="passcode-error">Invalid code. Check your email or contact team@notiondemand.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>
+        &copy; 2026 NotionDemand &nbsp;·&nbsp;
+        <a href="mailto:team@notiondemand.com">team@notiondemand.com</a>
+        &nbsp;·&nbsp; All sales final (digital product)
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // ── AUTH CHECK: if already logged in, skip straight to app ──
+    (function () {
+      try {
+        var raw = localStorage.getItem('nw_auth');
+        if (raw) {
+          var auth = JSON.parse(raw);
+          if (auth && auth.expiry && Date.now() < auth.expiry) {
+            // Already authenticated — show a subtle indicator but don't redirect
+            // (user may be checking the sales page intentionally)
+          }
+        }
+      } catch (e) {}
+    })();
+
+    // ── PASSCODE GATE ──
+    var passcodeBtn = document.getElementById('passcode-btn');
+    var passcodeInput = document.getElementById('passcode-input');
+    var passcodeError = document.getElementById('passcode-error');
+
+    passcodeInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') passcodeBtn.click();
+    });
+
+    passcodeBtn.addEventListener('click', function () {
+      var code = passcodeInput.value.trim().toUpperCase();
+      if (!code) {
+        passcodeError.textContent = 'Please enter your access code.';
+        passcodeError.classList.add('visible');
+        return;
+      }
+
+      passcodeBtn.disabled = true;
+      passcodeBtn.textContent = 'Checking...';
+      passcodeError.classList.remove('visible');
+
+      fetch('/api/validate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: code })
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.valid) {
+            // Store auth in localStorage for 30 days
+            localStorage.setItem('nw_auth', JSON.stringify({
+              code: code,
+              expiry: Date.now() + 30 * 24 * 60 * 60 * 1000
+            }));
+            window.location.href = '/app.html';
+          } else {
+            passcodeError.textContent = 'Invalid code. Check your email or contact team@notiondemand.com';
+            passcodeError.classList.add('visible');
+            passcodeBtn.disabled = false;
+            passcodeBtn.textContent = 'Access My Playbooks';
+          }
+        })
+        .catch(function () {
+          passcodeError.textContent = 'Something went wrong. Please try again.';
+          passcodeError.classList.add('visible');
+          passcodeBtn.disabled = false;
+          passcodeBtn.textContent = 'Access My Playbooks';
+        });
+    });
+  </script>
+
+</body>
+</html>
