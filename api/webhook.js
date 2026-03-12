@@ -270,9 +270,9 @@ export default async function handler(req, res) {
       return res.status(200).json({ received: true, note: 'No payment entity' });
     }
 
-    // Only handle payments tagged for this product
-    if (paymentEntity.notes?.product !== 'aiincome') {
-      console.log('[webhook] Skipping — not an aiincome payment');
+    // Only handle payments from the aiincome payment link
+    if (paymentEntity.invoice_id !== 'pl_SQ62X9TiDnWnhN') {
+      console.log('[webhook] Skipping — not an aiincome payment link');
       return res.status(200).json({ received: true, note: 'Not an aiincome payment' });
     }
 
