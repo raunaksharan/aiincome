@@ -260,10 +260,12 @@ export default async function handler(req, res) {
 
   const event = payload.event;
   console.log('[webhook] Received event:', event);
+  console.log('[webhook] payload keys:', Object.keys(payload?.payload || {}));
 
   // Handle payment.captured — log full entity to inspect notes
   if (event === 'payment.captured') {
     const paymentEntity = payload?.payload?.payment?.entity;
+    console.log('[webhook] paymentEntity exists:', !!paymentEntity);
 
     if (!paymentEntity) {
       console.warn('[webhook] payment.entity missing in payload');
