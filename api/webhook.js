@@ -95,7 +95,7 @@ async function sendEmailViaResend({ to, toName, fromEmail, resendApiKey, siteUrl
               <div style="background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.3);border-radius:12px;padding:24px;text-align:center;margin-bottom:28px;">
                 <p style="margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#a3a3a3;">Your Access Code</p>
                 <p style="margin:0 0 12px;font-size:36px;font-weight:900;color:#f59e0b;letter-spacing:0.1em;font-family:monospace;">FASTSCALE</p>
-                <p style="margin:0;font-size:13px;color:#a3a3a3;">Save this — you'll need it to log in anytime</p>
+                <p style="margin:0;font-size:13px;color:#a3a3a3;">Save this — go to our website, scroll to the bottom of the page, and enter this code to access your playbooks anytime</p>
               </div>
 
               <!-- CTA Button -->
@@ -170,7 +170,8 @@ Your AI Income Playbooks are ready.
 
 YOUR ACCESS CODE: FASTSCALE
 
-Use this code to log in at: ${loginUrl}
+Go to our website, scroll to the bottom of the page, and enter this code to access your playbooks.
+Or use the direct link: ${loginUrl}
 
 What to do next:
 1. Open your Notion template: ${loginUrl}
