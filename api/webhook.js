@@ -261,22 +261,21 @@ export default async function handler(req, res) {
   const event = payload.event;
   console.log('[webhook] Received event:', event);
 
-  // Handle payment.captured
-  if (event === 'payment.captured') {
-    const paymentEntity = payload?.payload?.payment?.entity;
+  // Handle payment_link.paid — filter by payment link ID
+  if (event === 'payment_link.paid') {
+    const paymentLinkEntity = payload?.payload?.payment_link?.entity;
+    const paymentEntity     = payload?.payload?.payment?.entity;
 
-    if (!paymentEntity) {
-      console.warn('[webhook] payment.entity missing in payload');
-      return res.status(200).json({ received: true, note: 'No payment entity' });
+    if (!paymentLinkEntity || !paymentEntity) {
+      console.warn('[webhook] Missing payment_link or payment entity');
+      return res.status(200).json({ received: true, note: 'Missing entity' });
     }
 
-    // Log full entity to find where payment link notes appear
-    console.log('[webhook] full payment entity:', JSON.stringify(paymentEntity));
+    console.log('[webhook] payment_link.paid — link id:', paymentLinkEntity.id);
 
-    // Filter by product note — set note key "product" value "1" on the Razorpay payment link
-    const productNote = paymentEntity.notes?.product;
-    if (productNote !== '1') {
-      console.log('[webhook] Skipping — product note:', productNote);
+    const allowedLinkId = process.env.RAZORPAY_PAYMENT_LINK_ID;
+    if (allowedLinkId && paymentLinkEntity.id !== allowedLinkId) {
+      console.log('[webhook] Skipping — wrong payment link:', paymentLinkEntity.id);
       return res.status(200).json({ received: true, note: 'Not an aiincome payment' });
     }
 
