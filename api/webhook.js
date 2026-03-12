@@ -270,6 +270,12 @@ export default async function handler(req, res) {
       return res.status(200).json({ received: true, note: 'No payment entity' });
     }
 
+    // Only handle payments tagged for this product
+    if (paymentEntity.notes?.product !== 'aiincome') {
+      console.log('[webhook] Skipping — not an aiincome payment');
+      return res.status(200).json({ received: true, note: 'Not an aiincome payment' });
+    }
+
     // Extract customer info
     // Razorpay stores email in payment entity; name may be in notes or customer fields
     const customerEmail = paymentEntity.email || null;
