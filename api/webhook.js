@@ -273,9 +273,9 @@ export default async function handler(req, res) {
     // Log full entity to find where payment link notes appear
     console.log('[webhook] full payment entity:', JSON.stringify(paymentEntity));
 
-    // Filter by product note set on the payment link
+    // Filter by product note — set note key "product" value "1" on the Razorpay payment link
     const productNote = paymentEntity.notes?.product;
-    if (productNote !== 'aiincome') {
+    if (productNote !== '1') {
       console.log('[webhook] Skipping — product note:', productNote);
       return res.status(200).json({ received: true, note: 'Not an aiincome payment' });
     }
