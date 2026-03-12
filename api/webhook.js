@@ -261,23 +261,24 @@ export default async function handler(req, res) {
   const event = payload.event;
   console.log('[webhook] Received event:', event);
 
-  // Handle payment.captured
-  if (event === 'payment.captured') {
-    const paymentEntity = payload?.payload?.payment?.entity;
+  // Handle payment_link.paid — includes payment link ID for reliable filtering
+  if (event === 'payment_link.paid') {
+    const paymentLinkEntity = payload?.payload?.payment_link?.entity;
+    const paymentEntity     = payload?.payload?.payment?.entity;
 
-    if (!paymentEntity) {
-      console.warn('[webhook] payment.entity missing in payload');
-      return res.status(200).json({ received: true, note: 'No payment entity' });
+    if (!paymentLinkEntity || !paymentEntity) {
+      console.warn('[webhook] Missing payment_link or payment entity');
+      return res.status(200).json({ received: true, note: 'Missing entity' });
     }
 
-    // Filter by amount — ₹1499 = 149900 paise
-    const expectedAmount = 149900;
-    if (paymentEntity.amount !== expectedAmount) {
-      console.log('[webhook] Skipping — amount mismatch:', paymentEntity.amount);
+    // Filter by payment link ID
+    const allowedLinkId = process.env.RAZORPAY_PAYMENT_LINK_ID;
+    if (allowedLinkId && paymentLinkEntity.id !== allowedLinkId) {
+      console.log('[webhook] Skipping — wrong payment link:', paymentLinkEntity.id);
       return res.status(200).json({ received: true, note: 'Not an aiincome payment' });
     }
 
-    // Extract customer info — email is in notes for payment link payments
+    // Extract customer info
     const customerEmail = paymentEntity.notes?.email || paymentEntity.email || null;
     const customerName  = paymentEntity.notes?.name || 'there';
 
