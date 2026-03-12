@@ -261,37 +261,26 @@ export default async function handler(req, res) {
   const event = payload.event;
   console.log('[webhook] Received event:', event);
 
-  // Handle payment.captured
-  if (event === 'payment.captured') {
-    const paymentEntity = payload?.payload?.payment?.entity;
+  // Handle payment_link.paid
+  if (event === 'payment_link.paid') {
+    const paymentLinkEntity = payload?.payload?.payment_link?.entity;
+    const paymentEntity     = payload?.payload?.payment?.entity;
 
-    if (!paymentEntity) {
-      console.warn('[webhook] payment.entity missing in payload');
-      return res.status(200).json({ received: true, note: 'No payment entity' });
+    if (!paymentLinkEntity || !paymentEntity) {
+      console.warn('[webhook] Missing payment_link or payment entity');
+      return res.status(200).json({ received: true, note: 'Missing entity' });
     }
 
-    // Log key fields to find correct payment link ID field
-    console.log('[webhook] payment entity fields:', JSON.stringify({
-      invoice_id: paymentEntity.invoice_id,
-      order_id: paymentEntity.order_id,
-      description: paymentEntity.description,
-      notes: paymentEntity.notes,
-    }));
-
-    // Only handle payments from the aiincome payment link
+    // Filter by payment link ID
     const allowedLinkId = process.env.RAZORPAY_PAYMENT_LINK_ID;
-    if (allowedLinkId && paymentEntity.invoice_id !== allowedLinkId) {
-      console.log('[webhook] Skipping — not an aiincome payment link');
+    if (allowedLinkId && paymentLinkEntity.id !== allowedLinkId) {
+      console.log('[webhook] Skipping — wrong payment link:', paymentLinkEntity.id);
       return res.status(200).json({ received: true, note: 'Not an aiincome payment' });
     }
 
-    // Extract customer info
-    // Razorpay stores email in payment entity; name may be in notes or customer fields
-    const customerEmail = paymentEntity.email || null;
-    const customerName =
-      paymentEntity.notes?.name ||
-      paymentEntity.contact || // sometimes phone is contact
-      'Valued Customer';
+    // Extract customer info — email is in notes for payment link payments
+    const customerEmail = paymentEntity.notes?.email || paymentEntity.email || null;
+    const customerName  = paymentEntity.notes?.name || 'there';
 
     console.log('[webhook] Payment captured for:', customerEmail);
 
