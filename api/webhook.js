@@ -260,32 +260,18 @@ export default async function handler(req, res) {
 
   const event = payload.event;
   console.log('[webhook] Received event:', event);
-  console.log('[webhook] payload keys:', Object.keys(payload?.payload || {}));
 
-  // Handle payment.captured — log full entity to inspect notes
   if (event === 'payment.captured') {
     const paymentEntity = payload?.payload?.payment?.entity;
-    console.log('[webhook] paymentEntity exists:', !!paymentEntity);
 
     if (!paymentEntity) {
-      console.warn('[webhook] payment.entity missing in payload');
+      console.warn('[webhook] payment.entity missing');
       return res.status(200).json({ received: true, note: 'No payment entity' });
     }
 
-    console.log('[webhook] full notes:', JSON.stringify(paymentEntity.notes));
-
-    const allowedLinkId = process.env.RAZORPAY_PAYMENT_LINK_ID;
-    if (allowedLinkId && paymentEntity.invoice_id !== allowedLinkId) {
-      // Try notes.product as fallback filter
-      if (paymentEntity.notes?.product !== '1') {
-        console.log('[webhook] Skipping — no matching filter');
-        return res.status(200).json({ received: true, note: 'Not an aiincome payment' });
-      }
-    }
-
-    // Extract customer info
     const customerEmail = paymentEntity.notes?.email || paymentEntity.email || null;
     const customerName  = paymentEntity.notes?.name || 'there';
+    console.log('[webhook] Processing payment for:', customerEmail);
 
     console.log('[webhook] Payment captured for:', customerEmail);
 
