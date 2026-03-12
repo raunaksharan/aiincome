@@ -11,9 +11,7 @@
 //   PASSCODE_SECRET — reserved for future dynamic validation logic
 
 const VALID_CODES = new Set([
-  'EARLYADOPTER',
-  'FOUNDER50',
-  'LAUNCH27',
+  'FASTSCALE',
 ]);
 
 export default async function handler(req, res) {
