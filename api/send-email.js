@@ -1,77 +1,22 @@
-// api/send-email.js — Triggered from thankyou.html after Razorpay redirect
-// Vercel serverless function: POST /api/send-email
-//
-// Flow:
-//   1. thankyou.html reads razorpay_payment_id from URL params
-//   2. POSTs it here
-//   3. We verify the payment with Razorpay API (status === 'captured')
-//   4. Send access email via Resend
+// api/send-email.js — Send access code email
+// Called from thankyou.html when customer enters their email
 //
 // Required env vars (Vercel → Settings → Environment Variables):
-//   RAZORPAY_KEY_ID       — from Razorpay dashboard → API Keys
-//   RAZORPAY_KEY_SECRET   — from Razorpay dashboard → API Keys
-//   RESEND_API_KEY        — from resend.com
-//   FROM_EMAIL            — e.g. "AI Income Playbooks <noreply@notiondemand.com>"
-//   SITE_URL              — e.g. "https://notionwealth.ai"
+//   RESEND_API_KEY  — from resend.com
+//   FROM_EMAIL      — e.g. "AI Income Playbooks <noreply@notiondemand.com>"
+//   SITE_URL        — e.g. "https://notionwealth.ai"
 
 export default async function handler(req, res) {
-  // Only POST
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { payment_id } = req.body || {};
+  const { email } = req.body || {};
 
-  if (!payment_id || typeof payment_id !== 'string') {
-    return res.status(400).json({ error: 'payment_id is required' });
+  if (!email || typeof email !== 'string' || !email.includes('@')) {
+    return res.status(400).json({ error: 'Valid email is required' });
   }
 
-  const keyId     = process.env.RAZORPAY_KEY_ID;
-  const keySecret = process.env.RAZORPAY_KEY_SECRET;
-
-  if (!keyId || !keySecret) {
-    console.error('[send-email] Missing Razorpay API credentials');
-    return res.status(500).json({ error: 'Server misconfiguration' });
-  }
-
-  // ── 1. Verify payment with Razorpay API ──
-  let payment;
-  try {
-    const credentials = Buffer.from(`${keyId}:${keySecret}`).toString('base64');
-    const rzpRes = await fetch(`https://api.razorpay.com/v1/payments/${payment_id}`, {
-      headers: { 'Authorization': `Basic ${credentials}` },
-    });
-
-    if (!rzpRes.ok) {
-      console.warn('[send-email] Razorpay API returned', rzpRes.status);
-      return res.status(400).json({ error: 'Invalid payment ID' });
-    }
-
-    payment = await rzpRes.json();
-  } catch (err) {
-    console.error('[send-email] Failed to fetch payment from Razorpay:', err);
-    return res.status(500).json({ error: 'Could not verify payment' });
-  }
-
-  // ── 2. Confirm payment is captured ──
-  if (payment.status !== 'captured') {
-    console.warn('[send-email] Payment not captured:', payment.status);
-    return res.status(400).json({ error: 'Payment not completed' });
-  }
-
-  // ── 3. Extract customer details ──
-  const customerEmail = payment.email || null;
-  const customerName  = payment.notes?.name || 'there';
-
-  if (!customerEmail) {
-    console.warn('[send-email] No email on payment:', payment_id);
-    return res.status(200).json({ sent: false, note: 'No email found on payment' });
-  }
-
-  // ── 4. Deduplicate — skip if already sent for this payment ──
-  // (client-side guard in thankyou.html handles most cases)
-
-  // ── 5. Send email via Resend ──
   const resendApiKey = process.env.RESEND_API_KEY;
   const fromEmail    = process.env.FROM_EMAIL || 'AI Income Playbooks <noreply@notiondemand.com>';
   const siteUrl      = (process.env.SITE_URL || '').replace(/\/$/, '');
@@ -82,8 +27,6 @@ export default async function handler(req, res) {
     console.error('[send-email] RESEND_API_KEY not set');
     return res.status(500).json({ error: 'Email service not configured' });
   }
-
-  const firstName = customerName.split(' ')[0];
 
   const htmlBody = `
 <!DOCTYPE html>
@@ -112,7 +55,7 @@ export default async function handler(req, res) {
             <td style="padding:36px 32px;">
               <h2 style="margin:0 0 8px;font-size:26px;font-weight:800;color:#f5f5f5;letter-spacing:-0.02em;">You're in! 🎉</h2>
               <p style="margin:0 0 24px;font-size:16px;color:#a3a3a3;">
-                Hey ${firstName},<br/>your AI Income Playbooks are ready. Here's everything you need.
+                Your AI Income Playbooks are ready. Here's everything you need.
               </p>
 
               <!-- Access Code -->
@@ -168,7 +111,6 @@ export default async function handler(req, res) {
   const textBody = `
 You're in! 🎉
 
-Hey ${firstName},
 Your AI Income Playbooks are ready.
 
 YOUR ACCESS CODE: FASTSCALE
@@ -199,7 +141,7 @@ NotionDemand 2026`.trim();
       },
       body: JSON.stringify({
         from: fromEmail,
-        to: [customerEmail],
+        to: [email.trim()],
         subject: 'Your AI Income Playbooks are ready! 🚀',
         html: htmlBody,
         text: textBody,
@@ -212,7 +154,7 @@ NotionDemand 2026`.trim();
       return res.status(500).json({ error: 'Failed to send email' });
     }
 
-    console.log('[send-email] Email sent to:', customerEmail);
+    console.log('[send-email] Email sent to:', email);
     return res.status(200).json({ sent: true });
 
   } catch (err) {
