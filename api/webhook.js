@@ -220,6 +220,8 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  console.log('[webhook] Request received:', req.method, req.headers['x-razorpay-signature'] ? 'has-signature' : 'no-signature');
+
   // Read raw body (required for signature verification)
   let rawBody;
   try {
