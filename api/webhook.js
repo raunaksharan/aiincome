@@ -271,7 +271,8 @@ export default async function handler(req, res) {
     }
 
     // Only handle payments from the aiincome payment link
-    if (paymentEntity.invoice_id !== 'pl_SQ62X9TiDnWnhN') {
+    const allowedLinkId = process.env.RAZORPAY_PAYMENT_LINK_ID;
+    if (allowedLinkId && paymentEntity.invoice_id !== allowedLinkId) {
       console.log('[webhook] Skipping — not an aiincome payment link');
       return res.status(200).json({ received: true, note: 'Not an aiincome payment' });
     }
