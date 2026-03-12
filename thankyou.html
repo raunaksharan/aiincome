@@ -382,8 +382,8 @@
     // ── Facebook Pixel: Purchase event ──
     if (typeof fbq === 'function') {
       fbq('track', 'Purchase', {
-        value: 27,
-        currency: 'USD'
+        value: 1499,
+        currency: 'INR'
       });
     }
 
@@ -391,12 +391,12 @@
     if (typeof gtag === 'function') {
       gtag('event', 'purchase', {
         transaction_id: 'TXN_' + Date.now(),
-        value: 27,
-        currency: 'USD',
+        value: 1499,
+        currency: 'INR',
         items: [{
           item_id: 'ai-income-playbooks',
           item_name: 'AI Income Playbooks',
-          price: 27,
+          price: 1499,
           quantity: 1
         }]
       });
