@@ -287,65 +287,9 @@
 
     footer a:hover { color: var(--accent); }
 
-    .email-send-box {
-      background: #141414;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .email-send-label {
-      font-size: 14px;
-      color: var(--muted);
-      margin: 0 0 12px;
-    }
-
-    .email-send-row {
-      display: flex;
-      gap: 8px;
-    }
-
-    .email-send-row input {
-      flex: 1;
-      background: #0d0d0d;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 14px;
-      color: var(--text);
-      outline: none;
-      font-family: inherit;
-    }
-
-    .email-send-row input:focus { border-color: var(--accent); }
-
-    .email-send-btn {
-      background: var(--accent);
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 18px;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      white-space: nowrap;
-      font-family: inherit;
-    }
-
-    .email-send-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-
-    .email-send-status {
-      font-size: 13px;
-      margin: 10px 0 0;
-      min-height: 18px;
-    }
-
     @media (max-width: 480px) {
       .page-wrapper { padding: 32px 16px; }
       .code-box { padding: 20px 16px; }
-      .email-send-row { flex-direction: column; }
     }
   </style>
 </head>
@@ -371,14 +315,10 @@
         </div>
       </div>
 
-      <!-- EMAIL SEND -->
-      <div class="email-send-box" id="email-send-box">
-        <p class="email-send-label">Get your access code emailed to you:</p>
-        <div class="email-send-row">
-          <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" />
-          <button class="email-send-btn" id="email-send-btn" onclick="sendAccessEmail()">Send Code</button>
-        </div>
-        <p class="email-send-status" id="email-send-status"></p>
+      <!-- EMAIL NOTE -->
+      <div class="email-note">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        Access code has been emailed to you
       </div>
 
       <!-- PRIMARY CTA -->
@@ -462,41 +402,6 @@
       });
     }
 
-    // ── Send access code email ──
-    function sendAccessEmail() {
-      var email = document.getElementById('email-input').value.trim();
-      var status = document.getElementById('email-send-status');
-      var btn = document.getElementById('email-send-btn');
-
-      if (!email || !email.includes('@')) {
-        status.style.color = '#ef4444';
-        status.textContent = 'Please enter a valid email address.';
-        return;
-      }
-
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      status.style.color = 'var(--muted)';
-      status.textContent = '';
-
-      fetch('/api/send-email', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email }),
-      })
-        .then(function (res) { return res.json(); })
-        .then(function () {
-          status.style.color = '#10b981';
-          status.textContent = '✓ Sent! Check your inbox (and spam folder).';
-          btn.textContent = 'Sent ✓';
-        })
-        .catch(function () {
-          status.style.color = '#ef4444';
-          status.textContent = 'Something went wrong. Email team@notiondemand.com';
-          btn.disabled = false;
-          btn.textContent = 'Send Code';
-        });
-    }
 
     // ── Access Playbooks button ──
     document.getElementById('access-btn').addEventListener('click', function () {
