@@ -402,6 +402,30 @@
       });
     }
 
+    // ── Trigger email from Razorpay redirect params ──
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var paymentId = params.get('razorpay_payment_id');
+        if (!paymentId) return;
+
+        // Deduplicate — don't send twice for the same payment
+        var sentKey = 'nw_email_sent_' + paymentId;
+        if (localStorage.getItem(sentKey)) return;
+        localStorage.setItem(sentKey, '1');
+
+        fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ payment_id: paymentId }),
+        }).catch(function (e) {
+          console.warn('Email trigger failed:', e);
+        });
+      } catch (e) {
+        console.warn('Email trigger error:', e);
+      }
+    })();
+
     // ── Access Playbooks button ──
     document.getElementById('access-btn').addEventListener('click', function () {
       // Auth is already stored on load; just navigate
