@@ -270,6 +270,14 @@ export default async function handler(req, res) {
       return res.status(200).json({ received: true, note: 'No payment entity' });
     }
 
+    // Log key fields to find correct payment link ID field
+    console.log('[webhook] payment entity fields:', JSON.stringify({
+      invoice_id: paymentEntity.invoice_id,
+      order_id: paymentEntity.order_id,
+      description: paymentEntity.description,
+      notes: paymentEntity.notes,
+    }));
+
     // Only handle payments from the aiincome payment link
     const allowedLinkId = process.env.RAZORPAY_PAYMENT_LINK_ID;
     if (allowedLinkId && paymentEntity.invoice_id !== allowedLinkId) {
